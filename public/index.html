@@ -1,20 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
+    <title>Task Manager | Organize Your Day</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Task Manager</h1>
-        <form id="task-form">
-            <input type="text" id="task-name" placeholder="Task name" required>
-            <button type="submit">Add Task</button>
-        </form>
-        <ul id="task-list"></ul>
+    <div class="container" id="main-page">
+        <header>
+            <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+        </header>
+        <main>
+            <section class="task-input">
+                <h2>Add New Task</h2>
+                <form id="task-form">
+                    <div class="input-group">
+                        <label for="task-name" class="visually-hidden">Task name</label>
+                        <input type="text" id="task-name" placeholder="Enter task name" required>
+                        <button type="submit" aria-label="Add task">
+                            <i class="fas fa-plus"></i> Add Task
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <section class="task-list">
+                <h2>Your Tasks</h2>
+                <ul id="task-list" aria-label="List of tasks"></ul>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Task Manager. All rights reserved.</p>
+        </footer>
     </div>
+
+    <div class="container" id="edit-page" style="display: none;">
+        <header>
+            <h1><i class="fas fa-edit"></i> Edit Task</h1>
+        </header>
+        <main>
+            <form id="edit-task-form">
+                <div class="input-group">
+                    <label for="edit-task-name">Task Name</label>
+                    <input type="text" id="edit-task-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="edit-task-status">Status</label>
+                    <select id="edit-task-status">
+                        <option value="false">Incomplete</option>
+                        <option value="true">Complete</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-update">Update Task</button>
+                <button type="button" class="btn-cancel" onclick="cancelEdit()">Cancel</button>
+            </form>
+        </main>
+    </div>
+
     <script src="app.js"></script>
 </body>
+
 </html>
